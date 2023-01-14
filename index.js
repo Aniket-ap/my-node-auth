@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema({
 const User = new mongoose.model("User", userSchema);
 
 // Routes
-app.post("/login", (req, res) => {
+app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
@@ -66,7 +66,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("/register", (req, res) => {
+app.post("/api/register", (req, res) => {
   const { name, email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
     if (user) {
